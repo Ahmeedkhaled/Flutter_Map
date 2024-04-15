@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:my_profile/core/routes.dart';
-import 'package:my_profile/core/theme_app.dart';
-import 'package:my_profile/view/home_page.dart';
-import 'package:firebase_core/firebase_core.dart';
-void main()async {
-    WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+import 'package:my_profile/presentation/screens/login_screen.dart';
+import 'core/routes.dart';
+import 'core/theme_app.dart';
+// import 'package:firebase_core/firebase_core.dart';
+import 'presentation/screens/home_page.dart';
+
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -17,9 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "My Profile",
-      initialRoute: MyRoutes.homePage,
+      initialRoute: MyRoutes.loginScreen,
       routes: {
         MyRoutes.homePage: (context) => HomePage(),
+        MyRoutes.loginScreen: (context) => LoginScreen(),
       },
       theme: ThemeApp.themeLight,
     );
