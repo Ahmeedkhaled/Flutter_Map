@@ -4,8 +4,8 @@ import 'package:my_profile/core/theme_app.dart';
 import 'package:my_profile/view/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 void main()async {
-    WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //   WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
