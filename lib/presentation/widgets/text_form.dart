@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_profile/core/theme_app.dart';
 
+// ignore: must_be_immutable
 class TextFormWidget extends StatelessWidget {
   late String phoneNumber;
+
+  TextFormWidget({super.key});
   String generateCountryFlag() {
     String countryCode = "eg";
 
@@ -35,8 +38,8 @@ class TextFormWidget extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(6))),
               child: TextFormField(
                 autofocus: true,
-                style: TextStyle(letterSpacing: 2.0, fontSize: 18),
-                decoration: InputDecoration(
+                style: const TextStyle(letterSpacing: 2.0, fontSize: 18),
+                decoration: const InputDecoration(
                   border: InputBorder.none,
                 ),
                 cursorColor: Colors.black,
