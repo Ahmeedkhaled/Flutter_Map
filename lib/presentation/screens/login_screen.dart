@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:my_profile/presentation/widgets/text_form.dart';
 
 class LoginScreen extends StatelessWidget {
   Widget _buildIntroText() {
@@ -7,7 +7,8 @@ class LoginScreen extends StatelessWidget {
       children: [
         const Text(
           "What is Your Phone Number?",
-          style: TextStyle(color: Colors.black, fontSize: 24),
+          style: TextStyle(
+              color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 25,
@@ -26,6 +27,12 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
+  Widget _sizedBox() {
+    return const SizedBox(
+      height: 100,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,6 +46,8 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildIntroText(),
+              _sizedBox(),
+              TextFormWidget(),
             ],
           ),
         ),
