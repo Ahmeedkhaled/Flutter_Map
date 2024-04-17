@@ -4,10 +4,11 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpScreen extends StatelessWidget{
    OtpScreen({super.key});
-    final String _phoneNumber='';
-
+late String phoneNumber;
   @override
   Widget build(BuildContext context) {
+    var args=ModalRoute.of(context)!.settings.arguments as String;
+     phoneNumber=args;
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -47,7 +48,7 @@ class OtpScreen extends StatelessWidget{
             text: "Enter your 6 digit code Number sent to ",style: const TextStyle(color:Colors.black,fontSize: 18,height: 1.4),
             children: <TextSpan>[
               TextSpan(
-                text: "$_phoneNumber",
+                text: phoneNumber,
                 style: const TextStyle(color: ThemeApp.mainColor)
               )
                         ]

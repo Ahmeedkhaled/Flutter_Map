@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_profile/buseniess_logic/cubit/phone_auth/phone_auth_cubit.dart';
 import 'package:my_profile/core/routes.dart';
 import 'package:my_profile/core/theme_app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:my_profile/presentation/screens/home_page.dart';
 import 'package:my_profile/presentation/screens/login_screen.dart';
 import 'package:my_profile/presentation/screens/otp_screen.dart';
-void main()async {
-    WidgetsFlutterBinding.ensureInitialized();
-// await Firebase.initializeApp();
-  runApp(const MyApp());
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp();
+  runApp(BlocProvider(
+
+    create: (context) => PhoneAuthCubit(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
