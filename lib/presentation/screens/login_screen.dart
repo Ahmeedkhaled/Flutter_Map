@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_profile/buseniess_logic/cubit/phone_auth/phone_auth_cubit.dart';
@@ -43,13 +45,27 @@ class LoginScreen extends StatelessWidget {
       height: 100,
     );
   }
+  Future<void> _register(BuildContext context)async{
+  if(!_phoneFormKey.currentState!.validate()){
+      Navigator.pop(context);
+     return ;
+  }else{
+      Navigator.pop(context);
+      _phoneFormKey.currentState!.save();
+      BlocProvider.of<PhoneAuthCubit>(context).submitPhoneNumber(phoneNumber);
+      // Navigator.pushNamed(context, MyRoutes.otpScreen,arguments: phoneNumber);
+
+  }
+  }
 
   Widget _buildNextButton(BuildContext context) {
     return Align(
       alignment: Alignment.centerRight,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.of(context).pushNamed(MyRoutes.otpScreen);
+        _showProgressIndecator(context);
+        _register(context);
+
         },
         style: ElevatedButton.styleFrom(
           minimumSize: const Size(110, 50),
